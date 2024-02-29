@@ -1,18 +1,51 @@
 const inputToDo = document.getElementById("inputToDo");
 const addContentInput = document.querySelector('.add');
 const toDoListContainer = document.querySelector('.container-todolist');
+const item = document.querySelector('.todo-item');
 //--------------------------------------------------------------
 const lastOptions = document.querySelector('.last-options');
+//--------------------------------------------------------------
+const btnDelete = document.querySelector('.clearAll');
 
 let toDoes = [];
 
 
+//Recuperar del local storage
+addEventListeners();
+
+function addEventListeners() {
+    document.addEventListener('DOMContentLoaded', () => {
+        toDoes = JSON.parse(localStorage.getItem('toDoes')) || [];
+        createToDo();
+    });
+    //Eliminar mediante evento
+    toDoListContainer.addEventListener('click', deleteToDo);
+}
+
+//Eliminar mediante ID
+ function deleteToDo(e) {
+     if (e.target.className == 'cross') {
+         const deleteID = parseInt(e.target.getAttribute('id'));
+         toDoes = toDoes.filter(toDo => toDo.id !== deleteID)
+        createToDo(); //LLamar crear para actualizar local storage y actualice los toDoes.
+     }
+}
+
+//Borrar todo
+// function deleteAll() {
+//     toDoes = [];
+//     createToDo();
+// }
+
+
+
+//------------------------------------------------------------------------
 // Obtener contenido del input y cambio de estado de btn add
 addContentInput.addEventListener("click", addToDoes);
 addContentInput.addEventListener("click", changeStateAdd);
 
-function addToDoes(e){
-            
+function addToDoes(){
+
         const toDo = inputToDo.value;
         if(toDo === ''){
             showError('El contenido esta vacio.')
@@ -26,24 +59,27 @@ function addToDoes(e){
 
         //Copiar el array y concatenar obj
         toDoes = [...toDoes, toDoObj];
-
-
+        
         createToDo();
+
+        inputToDo.value = '';
 }
 
  //----------------------------------------------------------------------------
  function createToDo() {
 
-    if (toDoes.lenght > 0) {
+    clearHtml();
+
+    if (toDoes.length > 0) {
         toDoes.forEach(toDo => {
             const todoItem = document.createElement('div');
             todoItem.classList.add("todo-item");
             todoItem.innerHTML = `
             <div class="flex-interior-item">
-                 <div class="circle"></div>
-                 <p id="${toDo.id}" class="todo">${toDo}</p>
+                 <span  class="circle"></span>
+                 <p class="todo">${toDo.toDo}</p>
             </div>
-            <button class="cross">X</button>
+            <button id="${toDo.id}" class="cross">X</button>
             `;
 
             toDoListContainer.appendChild(todoItem);
@@ -53,32 +89,14 @@ function addToDoes(e){
         
        
     }
-//     //limpiar
-   
 
-//     contentInput.forEach(todo => {
-
-//         let todoItem = document.createElement('div');
-//         todoItem.classList.add("todo-item");
-
-//         todoItem.innerHTML = `
-        
-//         <div class="flex-interior-item">
-//                 <div class="circle"></div>
-//                 <p class="todo">${todo}</p>
-//         </div>
-//         <button class="cross">X</button>
-        
-//         `
-
-//         toDoListContainer.appendChild(todoItem);
-
-//         
-
-//         lastOptions.before(todoItem);
-//     });
-
+    sincronizationStorage();
 }
+
+function sincronizationStorage() {
+    localStorage.setItem('toDoes',JSON.stringify(toDoes));
+}
+
 
  //ERROR-----------------------------------------------------------------------------------
 function showError(error) {
@@ -117,3 +135,8 @@ function changeStateAdd(){
      }, 260);
 }
 
+
+//CLEAR---------------------------  
+function clearHtml() {
+    toDoListContainer.innerHTML = '';
+}
