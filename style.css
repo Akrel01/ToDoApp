@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&display=swap');
+
+/*Generales*/
+*{
+    font-size: 18px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color:  hsl(235, 21%, 11%);
+    font-family: "Josefin Sans";
+}
+
+section{
+    padding: 50px 30px;
+}
+
+/*FONDO*/
+
+.background-img{
+    background-image:url(./img/images/bg-mobile-dark.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 200px;
+}
+
+/*titulo*/
+.container-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.sun-icon{
+    height: 16px;
+}
+
+.title{
+    color: white;
+    font-size: 1.3rem;
+    letter-spacing: 9px;
+    font-weight: 700;
+}
+
+
+/*Todo INPUT*/
+
+/*error*/
+.error{
+    color: rgb(212, 212, 212);
+    text-align: left;
+    background-color:hsl(235, 24%, 19%);
+    padding: 10px 13px;
+    border: double 2px rgb(224, 224, 224);
+   border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.6rem;
+    
+}
+
+.circle{
+    width: 15px;
+    height: 15px;
+    border: 1px solid hsl(234, 39%, 85%);
+    color: white;
+    border-radius: 50%;
+    margin-inline: 15px 10px;
+}
+
+.plus{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-inputtodo{
+    width: 100%;
+    background-color:hsl(235, 24%, 19%);
+
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-todo{
+    width: 91%;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    background-color:hsl(235, 24%, 19%);
+    color:hsl(234, 39%, 85%) ;
+    font-size: 10px;
+}
+
+.input-todo:focus{
+    border:none;
+    outline: none;
+}
+
+
+/*cuerpo TODOLIST*/
+
+.container-todolist{
+
+    margin-top: 24px;
+    width: 100%;
+   
+    height: auto;
+    border-radius: 6px;
+    background-color: hsl(235, 24%, 19%) ;
+}
+
+/*TodoITEMS*/
+
+.todo-item{
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px solid hsl(233, 14%, 35%);
+    border-radius: 6px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.flex-interior-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsl(234, 39%, 85%);
+}
+
+.todo{
+    font-size: 0.6rem;
+    position: relative;
+    top: 2px;
+}
+
+.did{
+    text-decoration: line-through;  /*Cuando el todo este hecho*/
+}
+
+.cross{
+    margin-right: 20px;
+    width: 20px;
+    height: 10px;
+    background: none;
+    border: none;
+    color: hsl(234, 11%, 52%);
+}
+
+.cross:hover{
+    color: rgb(145, 0, 0);
+}
+
+.padding-circle{
+    background: linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%)) ;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.check{
+    width: 8px;
+}
+
+.padding-add{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient( hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+/*lAST PART CONTAINER TODOLIST*/
+    
+.last-options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    margin-inline: 15px;
+    height: 65px;
+}
+
+.contador-todo{
+    color:hsl(234, 11%, 52%);
+    font-size: 0.6rem;
+}
+
+.clearAll{
+    background: none;
+    border: none;
+    font-size: 0.6rem;
+    color: hsl(234, 11%, 52%);
+}
+
+.clearAll:hover{
+    color: hsl(220, 98%, 61%);
+}
+
+
+/*Botones inferiores*/
+
+.container-btns{
+    margin-top: 20px;
+    width: 100%;
+    background-color:hsl(235, 24%, 19%);
+    height: 50px;
+    border-radius: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-state-todo{
+    border: none;
+    background: none;
+    color:hsl(234, 11%, 52%);
+    margin-inline: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.btn-state-todo:hover{
+    color:hsl(220, 98%, 61%);
+}

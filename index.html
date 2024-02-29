@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>To do list</title>
+</head>
+<body>
+    <div class="background-img"></div>
+    <section>
+        <div class="container-title">
+            <p class="title">TODO</p>
+            <img class="sun-icon" src="./img/images/icon-sun.svg" alt="">
+        </div>
+        <div class="container-inputtodo">
+            <div class="circle add"></div><input id="inputToDo" class="input-todo" autocomplete="off" placeholder="Create a new todo..." type="text" required minlength="3">
+        </div>
+        <div class="container-todolist">
+            <!-- <div class="todo-item">
+                <div class="flex-interior-item">
+                    <div class="circle"><div class="padding-circle"><img class="check" src="./img/images/icon-check.svg" alt=""></div></div>
+                    <p class="todo did">Walk</p>
+                </div>
+                <button class="cross">X</button>
+            </div>
+            <div class="todo-item">
+                <div class="flex-interior-item">
+                    <div class="circle"></div>
+                    <p class="todo">Eat</p>
+                </div>
+                <button class="cross">X</button>
+            </div> -->
+
+
+            <div class="last-options">
+                <p class="contador-todo">5 items left</p>
+                <input class="clearAll" type="button" value="Clear Complete">
+            </div>
+        </div>
+        <div class="container-btns">
+            <button class="btn-state-todo" type="button">All</button>
+            <button class="btn-state-todo">Active</button>
+            <button class="btn-state-todo">Completed</button>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>
